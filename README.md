@@ -1,4 +1,4 @@
-# Project File Structure & MVC Architecture
+# Project File Structure & MVC Architecture of the Star Evnts Tickets Booking System
 
 This document provides an overview of the folder and file organization of the StarEvents Online Event Ticketing System, highlighting how the project follows the Model-View-Controller (MVC) architecture.
 
@@ -54,3 +54,4 @@ StarEventsTicketSystemV2/
 ---
 
 This structure ensures a clear separation of concerns, maintainability, and scalability, following best practices of the MVC pattern in ASP.NET Core projects.
+
