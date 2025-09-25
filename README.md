@@ -1,87 +1,14 @@
-# StarEvents Online Event Ticketing System
+# Project File Structure & MVC Architecture
 
-## Scenario
-
-You are a software engineer at XYZ Pvt Ltd. StarEvents Pvt Ltd, a leading event organizer in Sri Lanka, has commissioned the development of an Online Event Ticketing Web Application. The system enables users to view and book tickets for concerts, theatre shows, and cultural events, while providing event organizers and administrators with powerful management and reporting tools.
+This document provides an overview of the folder and file organization of the StarEvents Online Event Ticketing System, highlighting how the project follows the Model-View-Controller (MVC) architecture.
 
 ---
 
-## Features
+## MVC Architecture Overview
 
-- **User Registration & Login:** Secure sign-up, login, and profile management for customers and organizers.
-- **Event Management:** Organizers can create, update, and manage events with details, images, and ticket pricing.
-- **Event Browsing & Search:** Customers can search and filter events by category, date, or location.
-- **Online Ticket Booking:** Customers can purchase tickets using integrated online payment gateways.
-- **QR-Coded E-Tickets:** System generates QR-coded e-tickets for secure entry validation.
-- **Admin Dashboard:** Admins can monitor system activity, manage users, and generate comprehensive reports.
-- **Promotions & Loyalty:** Support for promotional discounts and loyalty points for customers.
-- **Real-Time Sales Tracking:** Organizers can track ticket sales and revenue in real time.
-- **Comprehensive Reporting:** Admins can generate sales, user, and event reports.
-
----
-
-## System Usage
-
-### For Customers
-- Register and log in to your account.
-- Browse upcoming events, filter by category, date, or location.
-- View event details and book tickets online.
-- Make secure payments and receive QR-coded e-tickets via email.
-- Use e-tickets for event entry.
-
-### For Event Organizers
-- Log in as an organizer.
-- Create new events with details, images, and ticket pricing.
-- Update or manage existing events.
-- Monitor ticket sales and revenue in real time.
-- Access sales and revenue reports.
-
-### For Administrators
-- Log in as an admin.
-- Monitor all system activity and manage users.
-- Generate and download sales, user, and event reports.
-- Oversee event listings and promotional campaigns.
-
----
-
-## Installation Guide
-
-### Prerequisites
-
-- [.NET 8.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
-- [MongoDB](https://www.mongodb.com/try/download/community) (if using MongoDB for data storage)
-- [Node.js & npm](https://nodejs.org/) (for front-end asset management, if needed)
-- Git
-
-### Steps
-
-1. **Clone the Repository**
-   ```sh
-   git clone https://github.com/yourusername/StarEventsTicketSystemV2.git
-   cd StarEventsTicketSystemV2
-   ```
-
-2. **Configure the Database**
-   - Ensure MongoDB is running locally or update the connection string in `appsettings.json` to point to your MongoDB instance.
-
-3. **Restore Dependencies**
-   ```sh
-   dotnet restore
-   ```
-
-4. **Build the Project**
-   ```sh
-   dotnet build
-   ```
-
-5. **Run the Application**
-   ```sh
-   dotnet run --project StarEventsTicketSystemV2/StarEventsTicketSystemV2.csproj
-   ```
-   - The application will start on `https://localhost:5001` or the port specified in your launch settings.
-
-6. **Access the Application**
-   - Open your browser and navigate to `https://localhost:5001` (or the specified port).
+- **Model:** Represents the application's data and business logic. Models are used to manage the data, validation, and rules of the application.
+- **View:** Handles the display and user interface. Views are responsible for rendering HTML and presenting data to the user.
+- **Controller:** Acts as an intermediary between Models and Views. Controllers handle user input, interact with models, and select views to render.
 
 ---
 
@@ -89,46 +16,41 @@ You are a software engineer at XYZ Pvt Ltd. StarEvents Pvt Ltd, a leading event 
 
 ```
 StarEventsTicketSystemV2/
-├── Controllers/
-├── Models/
-├── Views/
-├── wwwroot/
-├── appsettings.json
-├── Program.cs
-└── StarEventsTicketSystemV2.csproj
+├── Controllers/         # Contains all controller classes (C in MVC)
+│   └── HomeController.cs
+│   └── ...
+├── Models/              # Contains all model classes (M in MVC)
+│   └── RegisterViewModel.cs
+│   └── LoginViewModel.cs
+│   └── ...
+├── Views/               # Contains all Razor views (V in MVC)
+│   ├── Home/
+│   │   └── Index.cshtml
+│   │   └── ...
+│   ├── Shared/
+│   │   └── _Layout.cshtml
+│   │   └── ...
+│   └── ...
+├── wwwroot/             # Static files (CSS, JS, images)
+│   ├── css/
+│   ├── js/
+│   ├── images/
+│   └── ...
+├── appsettings.json      # Application configuration
+├── Program.cs            # Application entry point
+└── StarEventsTicketSystemV2.csproj  # Project file
 ```
 
 ---
 
-## Technologies Used
+## How Files Are Categorized
 
-- ASP.NET Core MVC (.NET 8.0)
-- MongoDB (NoSQL Database)
-- Razor Views
-- Bootstrap (UI Framework)
-- Entity Framework Core (if used)
-- QR Code Generation Library
-
----
-
-## Contribution
-
-Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
+- **Controllers/**: Contains all controllers, each managing a specific part of the application's logic and routing (e.g., `HomeController.cs` for home page logic).
+- **Models/**: Contains data models and view models, defining the structure and validation of data used throughout the application (e.g., `RegisterViewModel.cs`).
+- **Views/**: Contains Razor view files organized by feature or controller, responsible for rendering the UI (e.g., `Views/Home/Index.cshtml`).
+- **wwwroot/**: Contains all static assets such as CSS, JavaScript, and images, used for styling and client-side functionality.
+- **Shared Views**: The `Views/Shared/` folder contains layout and partial views used across multiple pages (e.g., `_Layout.cshtml`).
 
 ---
 
-## License
-
-This project is licensed under the MIT License.
-
----
-
-## Contact
-
-For any inquiries or support, please contact the development team:
-Diosn Methvin,
-Ralph Shenal,
-Wishva Kothalawala,
-Dhananjana Thathsarani
-
----
+This structure ensures a clear separation of concerns, maintainability, and scalability, following best practices of the MVC pattern in ASP.NET Core projects.
