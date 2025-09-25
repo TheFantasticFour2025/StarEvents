@@ -126,9 +126,9 @@ This project is licensed under the MIT License.
 ## Contact
 
 For any inquiries or support, please contact the development team:
-Diosn Methvin
-Ralph Shenal
-Wishva Kothalawala
+Diosn Methvin,
+Ralph Shenal,
+Wishva Kothalawala,
 Dhananjana Thathsarani
 
 ---
